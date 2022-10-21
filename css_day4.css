@@ -198,7 +198,9 @@ header i:nth-of-type(2) {
   margin: 1em;
   overflow: hidden;
   position: relative;
-  flex: auto;
+  flex:auto;
+  float: wrap;
+  columns: auto;
 }
 .product--blue {
   background: linear-gradient(-45deg, #92DCE5 50%, rgba(255, 255, 255, 0.5) 50%);

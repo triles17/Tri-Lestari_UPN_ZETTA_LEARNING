@@ -22,3 +22,4 @@ function HargaPembelianBuku (buku, potonganharga, pajak){
 }
 
 HargaPembelianBuku({title: "pembelian Buku", harga: 99000, status: true},35,5);
+

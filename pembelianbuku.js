@@ -21,5 +21,5 @@ function HargaPembelianBuku (buku, potonganharga, pajak){
     return 0;
 }
 
-HargaPembelianBuku({title: "pembelian Buku", harga: 99000, status: true},35,5);
+HargaPembelianBuku({judul: "Rembulan Tenggelam Di Wajahmu", harga: 99000, status: true},35,5);
 

@@ -1,0 +1,27 @@
+<p>
+    <mat-toolbar color="primary">
+     
+      <span>My App</span>
+      <span class="example-spacer"></span>
+        
+    </mat-toolbar>
+  </p>
+        
+  <mat-card>
+    <mat-card-content>
+        <button mat-raised-button color="warn" [routerLink]="['list']">Kembali</button>
+            
+        <ul> 
+            <li>   <mat-icon>account_circle</mat-icon></li>
+            <li class="str">
+                <h1>{{list?.name | uppercase}}</h1>
+            </li>
+            <li>
+                <h2>-{{list?.position | uppercase}}-</h2>
+            </li>
+        </ul>
+    </mat-card-content>
+  </mat-card>
+        
+   
+

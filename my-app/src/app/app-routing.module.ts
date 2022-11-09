@@ -1,15 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ListComponent } from './user-manager/list/list.component';
 
 const routes: Routes = [
+  
   {
-    path:'kasir',
-    loadChildren:()=>import('./kasir/kasir.module').then(mod=>mod.KasirModule),
+    path : 'user-managment',
+    loadChildren:()=>import('./user-manager/user-manager.module').then(m=> m.UserManagerModule),
   },
+
   {
-    path :'admin',
-    loadChildren:()=>import('./admin/admin.module').then(mod=> mod.AdminModule),
-  },
+    path : '**',
+    redirectTo : 'user-managment'
+  }
 ];
 
 @NgModule({

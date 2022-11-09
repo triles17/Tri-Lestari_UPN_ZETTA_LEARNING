@@ -1,13 +1,14 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-md-8 col-md-offset-2">
-      <app-new-account (accountAdded)="onAccountAdded($event)"></app-new-account>
-      <hr>
-      <app-account
-        *ngFor="let acc of accounts; let i = index"
-        [account]="acc"
-        [id]="i"
-        (statusChanged)="onStatusChanged($event)"></app-account>
-    </div>
-  </div>
+<h1>Lestari Shop</h1>
+<div style="text-align: center;">
+    <label for="">Name  : </label>
+    <input #Nama type="text">
+    <button (click)="InputNama(Nama.value)">Input</button>
+    <h3> Selamat Datang <br> {{Nama.value}}</h3>
+    <br>
+    <button [routerLink]="['..','kasir']" (click)="tampil()">Show Item</button>
+    <button [routerLink]="['..','admin']" (click)="tampil()">Show Admin</button>
+</div>
+
+<div>
+    <router-outlet *ngIf='isChild'></router-outlet>
 </div>

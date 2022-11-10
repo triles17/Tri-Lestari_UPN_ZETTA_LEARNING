@@ -9,7 +9,6 @@
   }
   
   .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
     background-size: cover;
   }
   input{
@@ -66,5 +65,18 @@
   .atas{
     margin-top: 20px;
   }
+  .add{
+    width: 500px;
+    margin-top: 20px;
+    font-size: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: aliceblue;
+   }
   
+   .addrs{
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+   }
  

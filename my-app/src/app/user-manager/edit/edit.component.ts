@@ -5,6 +5,7 @@ import { UserManagerService } from '../user-manager.service';
 export interface List {id : string ,name : string ,email: string, age : number , gender : string , position :string, marital : string , addresgrup : addres[]} 
 export interface addres {addres :string , zip : string ,  city : string , country : string}
 
+
 interface pos {
   value: string;
   viewValue: string;
@@ -19,6 +20,7 @@ export class EditComponent implements OnInit {
   private listid : string|null =null
   public list : List|null = null
   public form : FormGroup 
+  public temp : any = this.list?.addresgrup.length
 
   constructor(private fb : FormBuilder ,private router : Router, private Service : UserManagerService  ,private route : ActivatedRoute) { 
 
@@ -41,9 +43,7 @@ export class EditComponent implements OnInit {
       this.list = this.Service.getListById(this.listid)
     }
 
-    console.log(this.list?.name);
-    console.log(this.list?.marital);
-    console.log(this.list?.addresgrup[0].country);
+    
     
 
 
@@ -66,6 +66,8 @@ export class EditComponent implements OnInit {
       addresgrup : this.fb.array([this.adressformgrup()])
       
     })
+
+    this.adddt(this.list?.addresgrup.length)
   }
   poss: pos[] = [
     {value: 'Manager', viewValue: 'Manager'},
@@ -78,7 +80,9 @@ export class EditComponent implements OnInit {
   }
   
   adressformgrup() : FormGroup {
+ 
     return this.fb.group({
+    
       addres : [this.list?.addresgrup[0].addres ,[Validators.required]],
       zip : [this.list?.addresgrup[0].zip  ,[Validators.required,Validators.minLength(6),Validators.maxLength(9)]],
       city : [this.list?.addresgrup[0].city  ,[Validators.required]],
@@ -92,6 +96,33 @@ export class EditComponent implements OnInit {
     this.Service.addUser(payload)
     this.router.navigate(['user-management','list'])
     
+    
+  }
+
+  adddt(tot : any) {
+    for (let index = 1; index < tot; index++) {
+      (<FormArray>this.form.get('addresgrup')).push(new FormGroup({
+        addres: new FormControl(this.list?.addresgrup[index].addres , [Validators.required]),
+        zip: new FormControl(this.list?.addresgrup[index].zip  ,[Validators.required,Validators.minLength(6),Validators.maxLength(9)]),
+        city: new FormControl(this.list?.addresgrup[index].city  ,[Validators.required]),
+        country: new FormControl(this.list?.addresgrup[index].country  ,[Validators.required])
+      }))
+      console.log();
+      
+      
+    }
+  
+  }
+
+  add() {
+    (<FormArray>this.form.get('addresgrup')).push(new FormGroup({
+      addres: new FormControl(null , [Validators.required]),
+      zip: new FormControl(null ,[Validators.required,Validators.minLength(6),Validators.maxLength(9)]),
+      city: new FormControl(null ,[Validators.required]),
+      country: new FormControl(null ,[Validators.required])
+    }))
+
+   
     
   }
 

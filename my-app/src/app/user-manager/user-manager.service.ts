@@ -16,11 +16,11 @@ constructor(){
 }
 
 GetUserById(id : string): User | undefined {
-    return this._users.value.find(user => user.id ===id)
+    return this._users.value.find((user: { id: string; }) => user.id ===id)
 }
 
 addUser(payload : User):void{
-    const UserIdx = this._users.value.findIndex(user => user.id ===payload.id)
+    const UserIdx = this._users.value.findIndex((user: { id: string; }) => user.id ===payload.id)
     if(UserIdx >= 0){
         this._users.value.splice(UserIdx,1,payload)
     }
@@ -34,7 +34,7 @@ addUser(payload : User):void{
 getListById(id:string) : any{
     const listarray = this._users.getValue();
     console.log(listarray)
-    const list = listarray.find(list => list.id ===id)
+    const list = listarray.find((list: { id: string; }) => list.id ===id)
     return list || null;
     
   

@@ -3,6 +3,13 @@ import { ActivatedRoute } from '@angular/router';
 import { UserManagerService } from '../user-manager.service';
 export interface List {id : string ,name : string ,email: string, age : number , gender : string , position :string, marital : string , addresgrup : addres[]} 
 export interface addres {addres :string , zip : string ,  city : string , country : string}
+import Swal from 'sweetalert2' 
+
+
+interface pos {
+  value: string;
+  viewValue: string;
+}
 
 @Component({
   selector: 'app-detail',

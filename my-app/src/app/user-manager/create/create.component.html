@@ -56,12 +56,14 @@
                     </mat-select>
                   </mat-form-field>
 
-                  <ul formArrayName = "addresgrup">
-                    <li *ngFor = "let group of addres.controls; let idx = index" [formGroupName]="idx">
-                        <mat-form-field  class="example-full-width">
-                            <mat-label>Alamat</mat-label>
-                            <input type="text" matInput formControlName="addres">
-                        </mat-form-field>
+                  <ul formArrayName = "addresgrup"  *ngFor = "let group of addres.controls; let idx = index">
+                    <li [formGroupName]="idx">
+                      
+                      <div>
+                         <mat-form-field  class="example-full-width">
+                        <mat-label>Alamat {{idx+1}} </mat-label>
+                        <input type="text" matInput formControlName="addres">
+                    </mat-form-field>
                         <mat-form-field   class="half" >
                             <mat-label>Kode Pos</mat-label>
                             <input type="text" matInput formControlName="zip">
@@ -73,9 +75,11 @@
                         <mat-form-field  class="half" id="end">
                             <mat-label>Provinsi</mat-label>
                             <input type="text" matInput formControlName="country">
-                        </mat-form-field>
+                        </mat-form-field> </div>
+                        
                     </li>
                   </ul>
+                  <div class="addrs"> <button mat-stroked-button class="add" (click)="add()">Masukan Alamat</button></div>
         </form>
     </mat-card-content>
   </mat-card>

@@ -1,0 +1,24 @@
+<mat-card>
+    <mat-form-field appearance="outline">
+      <mat-label>Outline form field</mat-label>
+      <input matInput placeholder="Placeholder" [(ngModel)]="filterdata">
+      <mat-hint>Pencarian</mat-hint>
+    </mat-form-field><br><br>
+    <button mat-raised-button color="primary" routerLink="/add">ADD</button>
+    <div *ngFor="let getdata of data | search:filterdata">
+      <div class="mt-3">
+        <mat-card class="example-card">
+          <mat-card-subtitle>Berita Terkini</mat-card-subtitle>
+          <mat-card-title>{{getdata.title}}</mat-card-title>
+          <mat-card-content>
+            <p>{{getdata.content}}</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="ngOnEdit(getdata.id)">EDIT</button>
+          </mat-card-actions>
+          <mat-card-footer>
+          </mat-card-footer>
+        </mat-card>
+      </div>
+    </div>
+  </mat-card>

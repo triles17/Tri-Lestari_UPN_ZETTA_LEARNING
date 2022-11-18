@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-3"></div>
+  <div class="col-6">
+    <mat-card>
+      <mat-card-title>ADD</mat-card-title>
+      <form [formGroup]="dataadd">
+        <mat-card-content>
+          <div class="row">
+            <mat-form-field appearance="outline">
+              <mat-label>Judul</mat-label>
+              <input matInput formControlName="title" placeholder="">
+              <mat-hint>Judul berita</mat-hint>
+            </mat-form-field><br>
+          </div>
+          <div class="row mt-3">
+            <mat-form-field appearance="fill">
+              <mat-label>Isi Konten</mat-label>
+              <textarea matInput formControlName="content"></textarea>
+            </mat-form-field>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" (click)="ngOnAdd()">Add data</button>
+        </mat-card-actions>
+      </form>
+    </mat-card>
+  </div>
+</div>
+<div class="col-3"></div>
